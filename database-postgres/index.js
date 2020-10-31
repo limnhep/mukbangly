@@ -6,7 +6,6 @@ const client = new Client({
   database: 'live_streaming'
 })
 
-const client = new Client()
 client
   .connect()
   .then(() => console.log('PostgreSQL is now connected'))
