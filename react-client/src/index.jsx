@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
+import styled from 'styled-components';
+
+import FeedList from './components/feed/FeedList.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -29,7 +32,13 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        Hello from React!
+        {/* <div>
+          Nav Bar
+        </div>
+        <div>
+          Story
+        </div> */}
+        <FeedList restaurants={this.state.feeds} />
       </div>
     )
   }
