@@ -4,6 +4,12 @@ import axios from 'axios';
 import styled from 'styled-components';
 
 import FeedList from './components/feed/FeedList.jsx';
+import NavBar from './components/search/NavBar.jsx';
+import StoryList from './components/story/StoryList.jsx';
+
+const Main = styled.div`
+  height: auto;
+`;
 
 class App extends React.Component {
   constructor(props) {
@@ -11,10 +17,11 @@ class App extends React.Component {
     this.state = {
       feeds: []
     }
+    this.searchRestaurant = this.searchRestaurant.bind(this);
   }
 
   requestFeeds() {
-    axios.get('/getFeeds')
+    axios.get('/feeds')
       .then(response => {
         this.setState({
           feeds: response.data
@@ -29,17 +36,29 @@ class App extends React.Component {
     this.requestFeeds();
   }
 
+  searchRestaurant(search) {
+    axios.get('/feed', {
+      params: {
+        business_name: `${search}`
+      }
+    })
+      .then((response) => {
+        this.setState({
+          feeds: response.data
+        })
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  }
+
   render() {
     return (
-      <div>
-        {/* <div>
-          Nav Bar
-        </div>
-        <div>
-          Story
-        </div> */}
+      <Main>
+        <NavBar searchRestaurant={this.searchRestaurant} />
+        <StoryList restaurants={this.state.feeds} />
         <FeedList restaurants={this.state.feeds} />
-      </div>
+      </Main>
     )
   }
 }

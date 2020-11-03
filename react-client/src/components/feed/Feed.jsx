@@ -14,7 +14,7 @@ const Container = styled.div`
 `;
 const ImagineContainer = styled.div`
   display: grid;
-  grid-template-columns: 5% 5% 80% 5% 5%;
+  grid-template-columns: 4% 4% 84% 4% 4%;
 `;
 
 const Next = styled.div`
@@ -64,7 +64,7 @@ const RestaurantFrame = styled.div`
 const RestaurantName = styled.div`
   margin-top: 20px;
   margin-left: 10px;
-  font-size: 13px;
+  font-size: 13.5px;
   font-weight: 700;
 `;
 
@@ -121,11 +121,22 @@ const Share = styled.span`
   cursor: pointer;
 `;
 
+const Description = styled.span`
+  position: relative;
+  left: 5px;
+  top: 2px;
+  font-size: 12px;
+`;
+
+const BusinessName = styled.span`
+  font-weight: 550;
+`;
+
 class Feed extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeIndex: 0,
+      activeIndex: 1,
       length: 3,
       heart: false,
     }
@@ -200,6 +211,11 @@ class Feed extends Component {
               share
           </span>
           </Share>
+          <div>
+            <Description>
+              <BusinessName>{restaurant.business_name}</BusinessName> {restaurant.photo_caption}
+            </Description>
+          </div>
         </div>
       </Container>
     )

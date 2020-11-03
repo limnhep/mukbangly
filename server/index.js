@@ -13,7 +13,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.get('/', function (req, res) {
   res.send('Hello Express');
 });
-app.get('/getFeeds', controller.getFeeds);
+app.get('/feed', controller.getFeed);
+app.get('/feeds', controller.getFeeds);
+
 
 const PORT = 3000;
 
