@@ -9,7 +9,7 @@ const StoryContainer = styled.div`
 `;
 
 const StoryBar = styled.div`
-  position: relative;
+  /* position: relative; */
   display: flex;
   justify-content: center;
   flex-direction: row;
@@ -24,7 +24,7 @@ const StoryBar = styled.div`
 `;
 
 const StoryBarMini = styled.div`
-  position: relative;
+  /* position: relative; */
   display: flex;
   justify-content: center;
   flex-direction: row;

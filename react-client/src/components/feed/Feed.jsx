@@ -29,8 +29,7 @@ const Next = styled.div`
   border: 1px solid #e6e6e6;
   box-shadow: 0 2px 6px rgba(0,0,0,.15);
   &:hover {
-    fill: #e6e6e6;
-    background: darkgrey;
+    background-image: linear-gradient(to right,#833ab4, #fd1d1d, #fcb045);
   };
   grid-column-start: 4;
 `;
@@ -47,8 +46,7 @@ const Prev = styled.div`
   border: 1px solid #e6e6e6;
   box-shadow: 0 2px 6px rgba(0,0,0,.15);
   &:hover {
-    fill: #e6e6e6;
-    background: darkgrey;
+    background-image: linear-gradient(to right,#833ab4, #fd1d1d, #fcb045);
   };
   grid-column-start: 2;
 `;

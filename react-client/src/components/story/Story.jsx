@@ -3,7 +3,8 @@ import styled from 'styled-components';
 
 const StoryContainer = styled.div`
   justify-content: center;
-  text-align: left;
+  text-align: center;
+  cursor: pointer;
 `;
 
 const UserIcon = styled.img`
@@ -11,7 +12,6 @@ const UserIcon = styled.img`
   width: 80px;
   margin: 8px;
   object-fit: cover;
-  cursor: pointer;
   border-radius: 50%;
 `;
 

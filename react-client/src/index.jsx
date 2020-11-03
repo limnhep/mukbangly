@@ -9,6 +9,7 @@ import StoryList from './components/story/StoryList.jsx';
 
 const Main = styled.div`
   height: auto;
+  /* background-color: rgba(var(--b3f,250,250,250),1); */
 `;
 
 const MainFlex = styled.div`
@@ -20,6 +21,20 @@ const MainStatic = styled.img`
   grid-column-start: 2;
   max-width: 1280px;
   justify-self: center;
+  cursor: pointer;
+`;
+
+const Footer = styled.div`
+  z-index: 1000;
+  bottom: 0.001px;
+  display: flex;
+  justify-content: center;
+  font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
+  height: 60px;
+  weight: auto;
+  border-top: 0.5px solid #e6e6e6;
+  background-color: white;
+  position: sticky;
 `;
 
 class App extends React.Component {
@@ -72,6 +87,7 @@ class App extends React.Component {
         </MainFlex>
         <StoryList restaurants={this.state.feeds} />
         <FeedList restaurants={this.state.feeds} />
+        {/* <Footer /> */}
       </Main>
     )
   }
