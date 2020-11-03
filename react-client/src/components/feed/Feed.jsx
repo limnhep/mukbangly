@@ -186,16 +186,16 @@ class Feed extends Component {
         </RestaurantFrame>
         <ImagineContainer>
           <Image src={restaurant.photo_url[this.state.activeIndex]} />
-          <Prev>
+          {this.state.activeIndex === 0 ? null : <Prev>
             <span className="material-icons" onClick={() => { this.prevImg() }}>
               keyboard_arrow_left
             </span>
-          </Prev>
-          <Next>
+          </Prev>}
+          {this.state.activeIndex === 2 ? null : <Next>
             <span className="material-icons" onClick={() => { this.nextImg() }}>
               keyboard_arrow_right
             </span>
-          </Next>
+          </Next>}
         </ImagineContainer>
         <div>
           <span onClick={() => { this.handleChange() }}>

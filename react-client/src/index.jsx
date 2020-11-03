@@ -11,6 +11,17 @@ const Main = styled.div`
   height: auto;
 `;
 
+const MainFlex = styled.div`
+  display: grid;
+  grid-template-columns: 5% 90% 5%;
+`;
+const MainStatic = styled.img`
+  justify-content: center;
+  grid-column-start: 2;
+  max-width: 1280px;
+  justify-self: center;
+`;
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -56,6 +67,9 @@ class App extends React.Component {
     return (
       <Main>
         <NavBar searchRestaurant={this.searchRestaurant} />
+        <MainFlex>
+          <MainStatic src='https://hackreactor-restaurant-images.s3-us-west-2.amazonaws.com/static-images/1.static-image-mvp-2.png' />
+        </MainFlex>
         <StoryList restaurants={this.state.feeds} />
         <FeedList restaurants={this.state.feeds} />
       </Main>

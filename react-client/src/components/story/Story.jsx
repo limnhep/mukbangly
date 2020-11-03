@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 const StoryContainer = styled.div`
   justify-content: center;
+  text-align: left;
 `;
 
 const UserIcon = styled.img`
@@ -10,7 +11,6 @@ const UserIcon = styled.img`
   width: 80px;
   margin: 8px;
   object-fit: cover;
-  vertical-align: bottom;
   cursor: pointer;
   border-radius: 50%;
 `;
@@ -21,6 +21,17 @@ const RestaurantName = styled.span`
   margin-top: 2px;
   font-size: 12.5px;
   font-weight: 500;
+`;
+
+const RestaurantNameMini = styled.span`
+  margin-right: 8px;
+  margin-left: 8px;
+  margin-top: 2px;
+  font-size: 12px;
+  font-weight: 500;
+  top: 10px;
+  position: relative;
+  right: 85px;
 `;
 
 class Story extends Component {
@@ -36,9 +47,13 @@ class Story extends Component {
     return (
       <StoryContainer>
         <UserIcon src={restaurant.logo_url} />
-        <RestaurantName>
-          {restaurant.business_name.length > 10 ? restaurant.business_name.slice(0, 10) + '...' : restaurant.business_name}
-        </RestaurantName>
+        {this.props.restaurants.length < 4 ?
+          <RestaurantNameMini>
+            {restaurant.business_name.length > 10 ? restaurant.business_name.slice(0, 10) + '...' : restaurant.business_name}
+          </RestaurantNameMini> :
+          <RestaurantName>
+            {restaurant.business_name.length > 10 ? restaurant.business_name.slice(0, 10) + '...' : restaurant.business_name}
+          </RestaurantName>}
       </StoryContainer>
     )
   }

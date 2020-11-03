@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const NavBarContainer = styled.div`
   z-index: 1000;
-  top: 0.000001px;
+  top: 0.001px;
   display: flex;
   justify-content: center;
   font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
@@ -60,7 +60,6 @@ class NavBar extends Component {
   }
 
   render() {
-    console.log(this.state.value)
     return (
       <NavBarContainer>
         <SearchBar>
