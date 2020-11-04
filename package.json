@@ -1,9 +1,9 @@
 {
-  "name": "live-streaming",
+  "name": "Mukbangly",
   "version": "1.1.0",
-  "description": "",
-  "author": "",
-  "license": "",
+  "description": "A platform that enables users to eat with friends and families anytime, anywhere",
+  "author": "Lim E. Nhep",
+  "license": "MIT",
   "private": true,
   "scripts": {
     "start": "nodemon server/index.js",
