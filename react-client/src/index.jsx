@@ -83,7 +83,7 @@ class App extends React.Component {
       <Main>
         <NavBar searchRestaurant={this.searchRestaurant} />
         <MainFlex>
-          <MainStatic src='https://hackreactor-restaurant-images.s3-us-west-2.amazonaws.com/static-images/1.static-image-mvp-2.png' />
+          <MainStatic src='https://hackreactor-restaurant-images.s3-us-west-2.amazonaws.com/static-images/1.static-imge-mvp-3.png' />
         </MainFlex>
         <StoryList restaurants={this.state.feeds} />
         <FeedList restaurants={this.state.feeds} />

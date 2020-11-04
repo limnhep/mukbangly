@@ -5,7 +5,7 @@ import icons from '../../icons/icons.js';
 const Container = styled.div`
   margin-top: 50px;
   width: 514px;
-  height: 714px;
+  height: 690px;
   border-radius: 1px;
   overflow: hidden;
   vertical-align: middle;
