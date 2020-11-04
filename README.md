@@ -7,7 +7,7 @@ Note: Virtual eat functionalities are in development and have yet to release in 
 ## Demo ##
 
 <p align="center">
-<img src="https://media.giphy.com/media/6XCLT3mz5EpdgKy7Iz/giphy.gif" width="65%"></p>
+<img src="https://media.giphy.com/media/6XCLT3mz5EpdgKy7Iz/giphy.gif" width="55%"></p>
 
 ## Getting Started ##
 
