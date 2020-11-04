@@ -1,11 +1,13 @@
 # Mukbangly - A New Way to Eat with Friends and Families
 
-This project is a PERN stack application. A full-stack platform that allows users to view nearby restaurant and eat with friends and families virtually.
+This project is a PERN stack application. A full-stack web application platform that allows users to view nearby restaurant and eat with friends and families virtually.
+
+Note: Virtual eat functionalities are in development mode and have yet to release.
 
 ## Demo ##
 
 <p align="center">
-<img src="https://media.giphy.com/media/6XCLT3mz5EpdgKy7Iz/giphy.gif" width="50%"></p>
+<img src="https://media.giphy.com/media/6XCLT3mz5EpdgKy7Iz/giphy.gif" width="95%"></p>
 
 ## Getting Started ##
 
