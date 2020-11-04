@@ -13,7 +13,7 @@ Note: Virtual eat functionalities are in development and have yet to release in 
 
 Install the dependencies by running `npm install --save` at the root directory.
 
-## Deploying ##
+## Getting Deployed ##
 
-To get the App running, run `npm start` and `npm run react-dev`.
+To deploy, run `npm start` and `npm run react-dev`.
 
