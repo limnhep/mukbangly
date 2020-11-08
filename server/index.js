@@ -15,7 +15,13 @@ app.get('/', function (req, res) {
 });
 app.get('/feed', controller.getFeed);
 app.get('/feeds', controller.getFeeds);
-
+app.get('/feed/:homepageId/comments', controller.getComments);
+app.get('/users', controller.getUsers);
+app.get('/comments', controller.getTotalComments);
+app.get('/lastCommentId', controller.getLastCommentId);
+app.post('/feed/:homepageId/comments/:commentId', controller.postComment);
+app.patch('/feed/:homepageId/comment', controller.updateHeart);
+app.delete('/feed/:homepageId/comment', controller.deleteComment);
 
 const PORT = 3000;
 

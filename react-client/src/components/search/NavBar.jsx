@@ -9,7 +9,6 @@ const NavBarContainer = styled.div`
   font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
   height: 66px;
   weight: auto;
-  /* border-bottom: 0.5px solid #e6e6e6; */
   background-color: white;
   position: sticky;
 `;
@@ -25,7 +24,6 @@ const Search = styled.div`
   justify-content: right;
   cursor: pointer;
   user-select: none;
-  /* font-variant-caps: petite-caps; */
   &:hover {
     color: #833ab4;
     font-weight: 700;
@@ -44,7 +42,6 @@ const SearchBar = styled.div`
   color: #282828;
   box-sizing: border-box;
   grid-column-start: 2;
-  /* font-variant-caps: small-caps; */
 `;
 
 const Close = styled.span`
@@ -68,7 +65,6 @@ const Input = styled.input`
   outline: none;
   cursor: text;
   font-style: oblique;
-  /* font-variant-caps: petite-caps; */
 `;
 
 const Explore = styled.div`
@@ -80,7 +76,6 @@ const Explore = styled.div`
   justify-content: center;
   cursor: pointer;
   user-select: none;
-  /* font-variant-caps: petite-caps; */
   &:hover {
     color: #833ab4;
     font-weight: 700;
@@ -96,7 +91,6 @@ const LiveStream = styled.div`
   justify-content: left;
   cursor: pointer;
   user-select: none;
-  /* font-variant-caps: petite-caps; */
   &:hover {
     color: #833ab4;
     font-weight: 700;
@@ -110,7 +104,6 @@ const Brand = styled.div`
   align-self: center;
   justify-self: center;
   font-size: 3rem;
-  /* font-variant-caps: small-caps; */
   font-style: oblique;
   cursor: pointer;
   font-weight: 700;
@@ -157,7 +150,7 @@ class NavBar extends Component {
   }
 
   render() {
-    console.log(this.state.isSearch)
+
     return (
       <NavBarContainer>
         <Explore>

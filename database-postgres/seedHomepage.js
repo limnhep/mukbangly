@@ -50,15 +50,16 @@ const csvWriter = createCsvWriter({
     { id: "heart_icon", title: "heart_icon" },
     { id: "share_icon", title: "share_icon" },
     { id: "num_review", title: "num_review" }
-  ],
+  ]
 });
+
 
 // startIndex and endIndex -> Must be from 1 to 50 due to photos URL constraints
 const homepageData = homepageDataGen(1, 50);
 
 csvWriter.writeRecords(homepageData)
   .then(() => {
-    console.log("seed.js Seeded!");
+    console.log("seedHomepage.js Seeded!");
   })
   .catch((error) => {
     console.log('Error Issues: ', error);

@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import CommentList from '../comment/CommentList.jsx';
+import axios from 'axios';
 import styled from 'styled-components';
 import icons from '../../icons/icons.js';
 
@@ -12,6 +14,18 @@ const Container = styled.div`
   border: 1px solid #e6e6e6;
   user-select: none;
 `;
+
+const ExpandContainer = styled.div`
+  margin-top: 50px;
+  width: 514px;
+  height: 790px;
+  border-radius: 1px;
+  overflow: hidden;
+  vertical-align: middle;
+  border: 1px solid #e6e6e6;
+  user-select: none;
+`;
+
 const ImagineContainer = styled.div`
   display: grid;
   grid-template-columns: 4% 4% 84% 4% 4%;
@@ -121,13 +135,79 @@ const Share = styled.span`
 
 const Description = styled.span`
   position: relative;
-  left: 5px;
+  left: 12px;
   top: 2px;
   font-size: 12px;
 `;
 
 const BusinessName = styled.span`
   font-weight: 550;
+`;
+
+const CommentSection = styled.span`
+  font-size: 12px;
+  font-weight: 400;
+  position: relative;
+  top: 10px;
+  left: 11px;
+  font-color: lightgrey;
+`;
+
+const PostCommentContainer = styled.div`
+  position: relative;
+  top: 20px;
+  height: 50px;
+  width: auto;
+  box-sizing: border-box;
+  border-radius: 1px;
+  border-top: 0.5px solid #e6e6e6;
+`;
+
+const PostComment = styled.input`
+  font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
+  font-size: 0.90rem;
+  position: relative;
+  left: 10px;
+  color: #282828;
+  height: 48px;
+  width: 80%;
+  border: none;
+  outline: none;
+  cursor: text;
+  user-select: none;
+`;
+
+const PostButton = styled.input`
+  font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
+  font-size: 0.85rem;
+  position: relative;
+  left: 10px;
+  height: 48px;
+  width: 15%;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  user-select: none;
+  font-weight: 600;
+  background-color: white;
+  color: #ffa5a5;
+`;
+
+
+const NoPostButton = styled.input`
+  font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
+  font-size: 0.85rem;
+  position: relative;
+  left: 10px;
+  height: 48px;
+  width: 15%;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  user-select: none;
+  font-weight: 600;
+  background-color: white;
+  color: lightgrey;
 `;
 
 class Feed extends Component {
@@ -137,10 +217,24 @@ class Feed extends Component {
       activeIndex: 1,
       length: 3,
       heart: false,
+      commnet: false,
+      userComments: [],
+      postComment: '',
+      commentId: ''
     }
     this.prevImg = this.prevImg.bind(this);
     this.nextImg = this.nextImg.bind(this);
     this.resetImg = this.resetImg.bind(this);
+    this.getUserComments = this.getUserComments.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleComment = this.handleComment.bind(this);
+    this.handleButton = this.handleButton.bind(this);
+    this.getLastCommentId = this.getLastCommentId.bind(this);
+  }
+
+  componentDidMount() {
+    this.getUserComments(this.props.restaurant.homepage_id);
+    this.getLastCommentId();
   }
 
   prevImg() {
@@ -173,12 +267,80 @@ class Feed extends Component {
     this.setState({
       heart: !this.state.heart
     });
-  };
+  }
+
+  handleExpand() {
+    this.setState({
+      comment: !this.state.comment
+    });
+  }
+
+  handleButton() {
+    this.setState({
+      commentId: this.state.commentId + 1
+    })
+  }
+
+  handleComment(event) {
+    this.setState({
+      postComment: event.target.value
+    })
+  }
+
+  handleSubmit(homepageId, event) {
+    event.preventDefault();
+    const { commentId } = this.state;
+    axios.post(`/feed/${homepageId}/comments/${commentId}`, {
+      user_comment: this.state.postComment,
+      heart_comment: false,
+      delete_comment: false,
+      user_id: 72
+    })
+      .then(response => {
+        const responseData = response.config.data.user_comment
+        console.log(responseData)
+        this.state.userComments.push({
+          "user_name": "limyup",
+          "user_comment": responseData
+        })
+        this.setState({
+          userComments: this.state.userComments
+        })
+        console.log(response)
+      })
+      .catch(error => {
+        console.log(error)
+      })
+  }
+
+  getUserComments(homepageId) {
+    axios.get(`/feed/${homepageId}/comments`)
+      .then((response) => {
+        this.setState({
+          userComments: response.data
+        })
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+  }
+
+  getLastCommentId() {
+    axios.get(`/lastCommentId`)
+      .then((response) => {
+        this.setState({
+          commentId: response.data.comment_id + 1
+        })
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+  }
 
   render() {
     const { restaurant } = this.props;
-    return (
-      <Container>
+    const Wrapper = (
+      <div>
         <RestaurantFrame>
           <RestaurantIcon src={restaurant.logo_url} /> <RestaurantName>{restaurant.business_name}</RestaurantName>
         </RestaurantFrame>
@@ -187,27 +349,27 @@ class Feed extends Component {
           {this.state.activeIndex === 0 ? null : <Prev>
             <span className="material-icons" onClick={() => { this.prevImg() }}>
               keyboard_arrow_left
-            </span>
+        </span>
           </Prev>}
           {this.state.activeIndex === 2 ? null : <Next>
             <span className="material-icons" onClick={() => { this.nextImg() }}>
               keyboard_arrow_right
-            </span>
+        </span>
           </Next>}
         </ImagineContainer>
         <div>
           <span onClick={() => { this.handleChange() }}>
             {this.state.heart ? <NoHeart><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"><path d={icons.heartIcon} /></svg></NoHeart> : <Heart><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"><path d={icons.heartIcon} /></svg></Heart>}
           </span>
-          <Comment>
+          <Comment onClick={() => { this.handleExpand() }}>
             <span className="material-icons">
               mode_comment
-              </span>
+          </span>
           </Comment>
           <Share>
             <span className="material-icons">
               share
-          </span>
+      </span>
           </Share>
           <div>
             <Description>
@@ -215,7 +377,41 @@ class Feed extends Component {
             </Description>
           </div>
         </div>
-      </Container>
+        <div>
+          {
+            this.state.comment ?
+              <div>
+                <CommentSection>View all Comments:</CommentSection>
+                <CommentList comments={this.state.userComments} />
+                <PostCommentContainer>
+                  {this.state.postComment.length === 0 ?
+                    <form onSubmit={() => { event.preventDefault() }}>
+                      <PostComment type="text" placeholder="Add a comment..." value={this.state.postComment} onChange={this.handleComment} />
+                      <NoPostButton type="submit" value="Post" />
+                    </form> :
+                    <form onSubmit={() => { this.handleSubmit(restaurant.homepage_id, event) }}>
+                      <PostComment type="text" placeholder="Add a comment..." value={this.state.postComment} onChange={this.handleComment} />
+                      <PostButton type="submit" value="Post" onClick={() => { this.handleButton() }} />
+                    </form>}
+                </PostCommentContainer>
+              </div> :
+              null
+          }
+        </div>
+      </div>
+    );
+    return (
+      <div>
+        {
+          this.state.comment ?
+            <ExpandContainer>
+              {Wrapper}
+            </ExpandContainer> :
+            <Container>
+              {Wrapper}
+            </Container>
+        }
+      </div>
     )
   }
 }
