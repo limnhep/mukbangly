@@ -1,8 +1,6 @@
-# Mukbangly - A New Way to Eat with Friends and Families
+# Mukbangly - A Food Discovery App
 
-This project is a PERN stack application. A full-stack web application platform that allows users to view nearby restaurants and eat with friends and families virtually.
-
-Note: Virtual eat functionalities are in development and have yet to release in this repository.
+This project is a PERN stack application. A full-stack web application platform that allows users to discover, view, comment, and share their favorite restaurants.
 
 ## Demo ##
 

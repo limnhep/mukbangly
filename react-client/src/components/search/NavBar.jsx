@@ -8,7 +8,7 @@ const NavBarContainer = styled.div`
   grid-template-columns: 5% 10% 50% 20% 5%;
   font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
   height: 66px;
-  weight: auto;
+  width: auto;
   background-color: white;
   position: sticky;
 `;
