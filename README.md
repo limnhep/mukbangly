@@ -2,7 +2,7 @@
 
 ## About ##
 
-Mukbangly is a PERN full-stack application. This app was created with the intention to help others discover Asian fusion food. It also allows users to comment, like, and share their favorite restaurants.
+Mukbangly is a PERN full-stack application. This app was created with the intention to help others discover local Asian fusion food. It also allows users to comment, like, and share their favorite restaurants.
 
 ## Demo ##
 
@@ -15,7 +15,7 @@ Mukbangly is a PERN full-stack application. This app was created with the intent
 <p align="center">
 <img src="https://hackreactor-restaurant-images.s3-us-west-2.amazonaws.com/static-images/mukbangly-img1.png" width="50%"></p>
 
-## Technologies / Framework Used ##
+## Technologies / Frameworks Used ##
 - PostgreSQL
 - Express.js
 - React
@@ -28,5 +28,7 @@ Install the dependencies by running `npm install --save` at the root directory.
 
 ## Getting Deployed ##
 
-To deploy, run `npm start` and `npm run react-dev`.
+To deploy, run `npm start` and `npm run react-dev`. Run locally on [http://localhost:3000](http://localhost:3000) on your local browser to view the app.
+
+
 
