@@ -6,8 +6,7 @@ Mukbangly is a PERN full-stack application. This app was created with the intent
 
 ## **Table of Contents**
 
-- [Client Demo](#Demo)
-- [API Endpoints Documentations](#API-CRUD-Operations)
+- [Client Demo](#demo)
 - [Getting Started](#development)
 - [Getting Deployed](#usage)
 
