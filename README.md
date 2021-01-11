@@ -1,4 +1,4 @@
-# **Mukbangly - An Asian Fusion Food Discovery App**
+# **Mukbangly - A Food Discovery App**
 
 ## **About** ##
 
